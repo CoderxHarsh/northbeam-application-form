@@ -1,0 +1,973 @@
+{
+ "start": "2026-11-11T17:59:16.256Z",
+ "round": 1,
+ "idle": 1,
+ "errors": 0,
+ "status": "done",
+ "history": [
+  {
+   "at": "2026-11-11T18:10:19.417Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 24,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-11T18:10:49.635Z",
+   "mode": "hook",
+   "host": "claude",
+   "status": "fail",
+   "fails": 24,
+   "round": 1,
+   "reused": true,
+   "stopHookActive": false,
+   "decision": "block",
+   "reason": "nothing changed since round 1 of 3, and 24 FAILs remain. Finishing again without a fix is blocked 1 more time, then counted as a round:"
+  },
+  {
+   "at": "2026-11-11T18:11:04.743Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 24,
+   "round": 1,
+   "reused": true,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-11T18:12:03.611Z",
+   "mode": "done",
+   "status": "done",
+   "reason": "Ship it as it is",
+   "round": 1
+  },
+  {
+   "at": "2026-11-11T18:12:16.774Z",
+   "mode": "hook",
+   "host": "claude",
+   "decision": "allow",
+   "reason": "no build is active here",
+   "stopHookActive": true
+  },
+  {
+   "at": "2026-11-11T18:15:14.893Z",
+   "mode": "hook",
+   "host": "claude",
+   "decision": "allow",
+   "reason": "no build is active here",
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-11T18:16:16.737Z",
+   "mode": "hook",
+   "host": "claude",
+   "decision": "allow",
+   "reason": "no build is active here",
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-11T18:16:52.600Z",
+   "mode": "hook",
+   "host": "claude",
+   "decision": "allow",
+   "reason": "no build is active here",
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": null,
+  "dir": "C:\\Users\\HP\\AppData\\Roaming\\Claude\\scratch-workspaces\\0b789346-bb98-4eda-971b-fb050f039d05\\b50fe8a7-ba0c-45d6-89e0-5787695d3b52\\scratch-2026-11-11-b2e933\\registration-app",
+  "kind": "service",
+  "start": "2026-11-11T17:59:16.256Z",
+  "by": "start.mjs",
+  "url": "http://127.0.0.1:8090/",
+  "category": "online programme applications",
+  "primary": "Submit application"
+ },
+ "manual": true,
+ "roundKey": "84db4a1e676b182b:da39a3ee",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": "84db4a1e676b182b:da39a3ee",
+ "fp": "84db4a1e676b182b",
+ "page": "http://127.0.0.1:8090/",
+ "found": {
+  "fails": [
+   {
+    "check": "hero-fill",
+    "where": "form#applyForm \"STEP 1 OF 3 About you Full name * Email \"",
+    "msg": "the next section shows on the first screen: it starts at 186px on a 900px screen (the hero ends at 156px)",
+    "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-fill"
+    ],
+    "wheres": [
+     "form#applyForm \"STEP 1 OF 3 About you Full name * Email \""
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "div.apply__inner > ol.stepper > li.stepper__track > span.stepper__fill",
+    "msg": "its last line sits 0px above the lower edge of ol.stepper, where the ground changes to form#applyForm",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "flush"
+    ],
+    "wheres": [
+     "div.apply__inner > ol.stepper > li.stepper__track > span.stepper__fill"
+    ]
+   },
+   {
+    "check": "flush",
+    "where": "main#apply > footer.foot > p:nth-of-type(1) > a.link \"admissions@northbeam.example\"",
+    "msg": "its first line sits 1px under the top edge of footer.foot, where the ground changes",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "flush"
+    ],
+    "wheres": [
+     "main#apply > footer.foot > p:nth-of-type(1) > a.link \"admissions@northbeam.example\""
+    ]
+   },
+   {
+    "check": "placeholder",
+    "where": "main#apply > footer.foot > p:nth-of-type(1) \"© 2026 Northbeam Academy · Questions: ad\"",
+    "msg": "a stand-in contact printed on the page (\"admissions@northbeam.example\"): no visitor can use it",
+    "fix": "print the real address and number, or a form or a button that names the action: never an example.com address or a number of zeros",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "placeholder"
+    ],
+    "wheres": [
+     "main#apply > footer.foot > p:nth-of-type(1) \"© 2026 Northbeam Academy · Questions: ad\""
+    ]
+   },
+   {
+    "check": "nav",
+    "where": "(the first screen)",
+    "msg": "no nav bar across the top of the first screen (a header with the brand, the section links and the main action)",
+    "fix": "make the nav one bar from the content's left edge to its right edge, with every link and action inside it",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "nav"
+    ],
+    "wheres": [
+     "(the first screen)"
+    ]
+   },
+   {
+    "check": "cta",
+    "where": "main#apply > div.apply__inner > ol.stepper",
+    "msg": "the hero has no button (the nav's does not count)",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "cta"
+    ],
+    "wheres": [
+     "main#apply > div.apply__inner > ol.stepper"
+    ]
+   },
+   {
+    "check": "off-grid",
+    "where": "div.field.field--full:nth-of-type(6) > div.chips > label.chip:nth-of-type(4) > span \"Prefer not to say\"",
+    "msg": "left edge at 1006.5px, 23.5px off a common edge of its section at 1030px (5 elements, like input#city)",
+    "fix": "move it onto the page margin, or the column edge its section uses",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "off-grid"
+    ],
+    "wheres": [
+     "div.field.field--full:nth-of-type(6) > div.chips > label.chip:nth-of-type(4) > span \"Prefer not to say\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "div.shell > aside.intro > div.intro__copy > p.intro__lede \"Five full-time programmes, from software\"",
+    "msg": "body text in #a8a7a2 on #26251e reads 6.38:1 (needs 7:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "div.shell > aside.intro > div.intro__copy > p.intro__lede \"Five full-time programmes, from software\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "div.shell > aside.intro > a.brand \"Northbeam Academy home\"",
+    "msg": "Tab stop 2, a \"Northbeam Academy home\": its focus change is faint: 2.47:1 against the ground, 3:1 needed",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "div.shell > aside.intro > a.brand \"Northbeam Academy home\""
+    ]
+   },
+   {
+    "check": "moment-none",
+    "where": "(the page)",
+    "msg": "a service page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+    "fix": "deal one (moments.mjs pick --page service --photo) and mount it in its own section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "moment-none"
+    ],
+    "wheres": [
+     "(the page)"
+    ]
+   },
+   {
+    "check": "hero-screen",
+    "where": "main#apply > div.apply__inner \"Your application Fields marked *with a s\"",
+    "msg": "the hero ends at 791px on a 900px screen, 109px above the fold: it ends at the fold, 1px either way (SR-1)",
+    "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-screen"
+    ],
+    "wheres": [
+     "main#apply > div.apply__inner \"Your application Fields marked *with a s\""
+    ]
+   },
+   {
+    "check": "hero-screen",
+    "where": "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+    "msg": "61px of the next section shows on the first screen (from 839px on a 900px screen): nothing below the hero shows at load (SR-1)",
+    "fix": "end the hero at the fold so nothing of the next section shows at load (hero height: 100svh)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-screen"
+    ],
+    "wheres": [
+     "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+    "msg": "the section is 48px tall (0.1 screens), 852px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+     "main#apply > div.apply__inner \"Your application Fields marked *with a s\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+    "msg": "the screen at scroll 0px (stride 0) shows 48px of section 2 and the content of 2 sections, over 24px each beside section 1: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+     "main#apply > div.apply__inner \"Your application Fields marked *with a s\""
+    ]
+   },
+   {
+    "check": "one-heading",
+    "where": "main#apply > div.apply__inner > header.apply__head > h2 \"Your application\"",
+    "msg": "the hero holds an h2 (1): its heading is the h1, and an h2 opens the next section (SR-5)",
+    "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-heading"
+    ],
+    "wheres": [
+     "main#apply > div.apply__inner > header.apply__head > h2 \"Your application\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "main#apply > div.apply__inner \"Your application Fields marked *with a s\"",
+    "msg": "the content of section 1 runs 680px from the left and 80px from the right (read from its outermost blocks: no .wrap): 680 and 80px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "main#apply > div.apply__inner \"Your application Fields marked *with a s\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+    "msg": "the content of section 2 runs 680px from the left and 80px from the right (read from its outermost blocks: no .wrap): 680 and 80px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "a.skip \"Skip to the application form\"",
+    "msg": "a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "a.skip \"Skip to the application form\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.shell \"Northbeam Academy Admissions · 2027 inta\"",
+    "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.shell \"Northbeam Academy Admissions · 2027 inta\""
+    ]
+   },
+   {
+    "check": "hero-fill",
+    "where": "main#apply > div.apply__inner > ol.stepper \"1 About you 2 Programme 3 Statement\"",
+    "msg": "the next section shows on the first screen: it starts at 604px on a 844px screen (the hero ends at 570px)",
+    "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-fill"
+    ],
+    "wheres": [
+     "main#apply > div.apply__inner > ol.stepper \"1 About you 2 Programme 3 Statement\""
+    ]
+   },
+   {
+    "check": "no-visual",
+    "where": "form#applyForm \"STEP 1 OF 3 About you Full name * Email \"",
+    "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "no-visual"
+    ],
+    "wheres": [
+     "form#applyForm \"STEP 1 OF 3 About you Full name * Email \""
+    ]
+   },
+   {
+    "check": "cta",
+    "where": "main#apply > div.apply__inner > header.apply__head",
+    "msg": "the hero has no button (the nav's does not count)",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "cta"
+    ],
+    "wheres": [
+     "main#apply > div.apply__inner > header.apply__head"
+    ]
+   },
+   {
+    "check": "section-gaps",
+    "where": "form#applyForm / main#apply > footer.foot",
+    "msg": "86px between these sections, +139% against the median 36px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-gaps"
+    ],
+    "wheres": [
+     "form#applyForm / main#apply > footer.foot"
+    ]
+   },
+   {
+    "check": "container",
+    "where": "page",
+    "msg": "no .wrap",
+    "fix": "put the content in one .wrap",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "container"
+    ],
+    "wheres": [
+     "page"
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "copy-headline",
+    "where": "div.shell > aside.intro > div.intro__copy > h1.intro__title \"Apply for a place on a Northbeam tech pr\"",
+    "msg": "the h1 has 9 words (2 to 8 read at a glance)",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-actions",
+    "where": "(the page)",
+    "msg": "the main action \"Submit application\" does not read word for word the same in the nav or hero and the closing section",
+    "fix": "few actions, one wording: at most 2 in the hero, the main action word for word in nav, hero and close",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "main#apply > div.apply__inner > ol.stepper / form#applyForm",
+    "msg": "30px between these sections, -48% against the median 58px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "form#applyForm / main#apply > footer.foot",
+    "msg": "86px between these sections, +48% against the median 58px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-credit",
+    "where": "(the page text)",
+    "msg": "1 library source (wikimedia): the page credits wikimedia; confirm each shows the client's own product, place or people",
+    "fix": "confirm the library photograph shows the client's own product, place or people; otherwise replace it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "effect-kind",
+    "where": "(the page)",
+    "msg": "a service page (--type) loads effect libraries: cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js; check each is wanted",
+    "fix": "drop the effect library unless the page needs it for something that is not an effect",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "share-meta",
+    "where": "head",
+    "msg": "the head lacks twitter:card: a shared link shows no picture or title of its own",
+    "fix": "copy the head block of starter.html: og tags, twitter:card, the icon and theme-color (references/system.md, Head)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-stat-strip",
+    "msg": "stat strip x1",
+    "fix": "a strip only of figures the brief gives (a price, hours, a count); otherwise put each number in the sentence it proves, or leave it out (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x1: \"10 days / 1 / 2 / 3\"",
+    "exact": false
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 59,
+   "layout": 14
+  }
+ },
+ "open": [
+  {
+   "check": "hero-fill",
+   "where": "form#applyForm \"STEP 1 OF 3 About you Full name * Email \"",
+   "msg": "the next section shows on the first screen: it starts at 186px on a 900px screen (the hero ends at 156px)",
+   "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-fill"
+   ],
+   "wheres": [
+    "form#applyForm \"STEP 1 OF 3 About you Full name * Email \""
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "div.apply__inner > ol.stepper > li.stepper__track > span.stepper__fill",
+   "msg": "its last line sits 0px above the lower edge of ol.stepper, where the ground changes to form#applyForm",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "flush"
+   ],
+   "wheres": [
+    "div.apply__inner > ol.stepper > li.stepper__track > span.stepper__fill"
+   ]
+  },
+  {
+   "check": "flush",
+   "where": "main#apply > footer.foot > p:nth-of-type(1) > a.link \"admissions@northbeam.example\"",
+   "msg": "its first line sits 1px under the top edge of footer.foot, where the ground changes",
+   "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "flush"
+   ],
+   "wheres": [
+    "main#apply > footer.foot > p:nth-of-type(1) > a.link \"admissions@northbeam.example\""
+   ]
+  },
+  {
+   "check": "placeholder",
+   "where": "main#apply > footer.foot > p:nth-of-type(1) \"© 2026 Northbeam Academy · Questions: ad\"",
+   "msg": "a stand-in contact printed on the page (\"admissions@northbeam.example\"): no visitor can use it",
+   "fix": "print the real address and number, or a form or a button that names the action: never an example.com address or a number of zeros",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "placeholder"
+   ],
+   "wheres": [
+    "main#apply > footer.foot > p:nth-of-type(1) \"© 2026 Northbeam Academy · Questions: ad\""
+   ]
+  },
+  {
+   "check": "nav",
+   "where": "(the first screen)",
+   "msg": "no nav bar across the top of the first screen (a header with the brand, the section links and the main action)",
+   "fix": "make the nav one bar from the content's left edge to its right edge, with every link and action inside it",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "nav"
+   ],
+   "wheres": [
+    "(the first screen)"
+   ]
+  },
+  {
+   "check": "cta",
+   "where": "main#apply > div.apply__inner > ol.stepper",
+   "msg": "the hero has no button (the nav's does not count)",
+   "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "cta"
+   ],
+   "wheres": [
+    "main#apply > div.apply__inner > ol.stepper"
+   ]
+  },
+  {
+   "check": "off-grid",
+   "where": "div.field.field--full:nth-of-type(6) > div.chips > label.chip:nth-of-type(4) > span \"Prefer not to say\"",
+   "msg": "left edge at 1006.5px, 23.5px off a common edge of its section at 1030px (5 elements, like input#city)",
+   "fix": "move it onto the page margin, or the column edge its section uses",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "off-grid"
+   ],
+   "wheres": [
+    "div.field.field--full:nth-of-type(6) > div.chips > label.chip:nth-of-type(4) > span \"Prefer not to say\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "div.shell > aside.intro > div.intro__copy > p.intro__lede \"Five full-time programmes, from software\"",
+   "msg": "body text in #a8a7a2 on #26251e reads 6.38:1 (needs 7:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "div.shell > aside.intro > div.intro__copy > p.intro__lede \"Five full-time programmes, from software\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "div.shell > aside.intro > a.brand \"Northbeam Academy home\"",
+   "msg": "Tab stop 2, a \"Northbeam Academy home\": its focus change is faint: 2.47:1 against the ground, 3:1 needed",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "div.shell > aside.intro > a.brand \"Northbeam Academy home\""
+   ]
+  },
+  {
+   "check": "moment-none",
+   "where": "(the page)",
+   "msg": "a service page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+   "fix": "deal one (moments.mjs pick --page service --photo) and mount it in its own section",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "moment-none"
+   ],
+   "wheres": [
+    "(the page)"
+   ]
+  },
+  {
+   "check": "hero-screen",
+   "where": "main#apply > div.apply__inner \"Your application Fields marked *with a s\"",
+   "msg": "the hero ends at 791px on a 900px screen, 109px above the fold: it ends at the fold, 1px either way (SR-1)",
+   "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-screen"
+   ],
+   "wheres": [
+    "main#apply > div.apply__inner \"Your application Fields marked *with a s\""
+   ]
+  },
+  {
+   "check": "hero-screen",
+   "where": "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+   "msg": "61px of the next section shows on the first screen (from 839px on a 900px screen): nothing below the hero shows at load (SR-1)",
+   "fix": "end the hero at the fold so nothing of the next section shows at load (hero height: 100svh)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-screen"
+   ],
+   "wheres": [
+    "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+   "msg": "the section is 48px tall (0.1 screens), 852px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+    "main#apply > div.apply__inner \"Your application Fields marked *with a s\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+   "msg": "the screen at scroll 0px (stride 0) shows 48px of section 2 and the content of 2 sections, over 24px each beside section 1: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+    "main#apply > div.apply__inner \"Your application Fields marked *with a s\""
+   ]
+  },
+  {
+   "check": "one-heading",
+   "where": "main#apply > div.apply__inner > header.apply__head > h2 \"Your application\"",
+   "msg": "the hero holds an h2 (1): its heading is the h1, and an h2 opens the next section (SR-5)",
+   "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-heading"
+   ],
+   "wheres": [
+    "main#apply > div.apply__inner > header.apply__head > h2 \"Your application\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "main#apply > div.apply__inner \"Your application Fields marked *with a s\"",
+   "msg": "the content of section 1 runs 680px from the left and 80px from the right (read from its outermost blocks: no .wrap): 680 and 80px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "main#apply > div.apply__inner \"Your application Fields marked *with a s\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\"",
+   "msg": "the content of section 2 runs 680px from the left and 80px from the right (read from its outermost blocks: no .wrap): 680 and 80px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "main#apply > footer.foot \"© 2026 Northbeam Academy · Questions: ad\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "a.skip \"Skip to the application form\"",
+   "msg": "a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "a.skip \"Skip to the application form\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.shell \"Northbeam Academy Admissions · 2027 inta\"",
+   "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.shell \"Northbeam Academy Admissions · 2027 inta\""
+   ]
+  },
+  {
+   "check": "hero-fill",
+   "where": "main#apply > div.apply__inner > ol.stepper \"1 About you 2 Programme 3 Statement\"",
+   "msg": "the next section shows on the first screen: it starts at 604px on a 844px screen (the hero ends at 570px)",
+   "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-fill"
+   ],
+   "wheres": [
+    "main#apply > div.apply__inner > ol.stepper \"1 About you 2 Programme 3 Statement\""
+   ]
+  },
+  {
+   "check": "no-visual",
+   "where": "form#applyForm \"STEP 1 OF 3 About you Full name * Email \"",
+   "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "no-visual"
+   ],
+   "wheres": [
+    "form#applyForm \"STEP 1 OF 3 About you Full name * Email \""
+   ]
+  },
+  {
+   "check": "cta",
+   "where": "main#apply > div.apply__inner > header.apply__head",
+   "msg": "the hero has no button (the nav's does not count)",
+   "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "cta"
+   ],
+   "wheres": [
+    "main#apply > div.apply__inner > header.apply__head"
+   ]
+  },
+  {
+   "check": "section-gaps",
+   "where": "form#applyForm / main#apply > footer.foot",
+   "msg": "86px between these sections, +139% against the median 36px",
+   "fix": "use one gap between sections (all within 25% of each other)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-gaps"
+   ],
+   "wheres": [
+    "form#applyForm / main#apply > footer.foot"
+   ]
+  },
+  {
+   "check": "container",
+   "where": "page",
+   "msg": "no .wrap",
+   "fix": "put the content in one .wrap",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "container"
+   ],
+   "wheres": [
+    "page"
+   ]
+  }
+ ],
+ "waived": [],
+ "warnCount": 8,
+ "at": "2026-11-11T18:12:03.612Z",
+ "session": "5ddd5110-1943-453c-9ed6-19f24ddbce6c",
+ "doneReason": "Ship it as it is"
+}

@@ -1,0 +1,10 @@
+{
+ "page": null,
+ "dir": "C:\\Users\\HP\\AppData\\Roaming\\Claude\\scratch-workspaces\\0b789346-bb98-4eda-971b-fb050f039d05\\b50fe8a7-ba0c-45d6-89e0-5787695d3b52\\scratch-2026-11-11-b2e933\\registration-app",
+ "kind": "service",
+ "start": "2026-11-11T17:59:16.256Z",
+ "by": "start.mjs",
+ "url": "http://127.0.0.1:8090/",
+ "category": "online programme applications",
+ "primary": "Submit application"
+}

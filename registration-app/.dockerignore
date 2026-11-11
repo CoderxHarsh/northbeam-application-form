@@ -1,0 +1,5 @@
+.taste-skill
+Dockerfile
+.dockerignore
+README.md
+data/*.jsonl
